@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stundenplan
+    username: sp
+    password: sp
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      "[hibernate.jdbc.time_zone]": UTC
+  flyway:
+    enabled: true
+server:
+  port: 8080
+
+stundenplan:
+  blockmap:
+    1:  "08:00-08:45"
+    2:  "08:50-09:35"
+    3:  "09:45-10:30"
+    4:  "10:35-11:20"
+    5:  "11:30-12:15"
+    6:  "12:20-13:05"
+    7:  "13:30-14:15"
+    8:  "14:20-15:05"
+    9:  "15:15-16:00"
+    10: "16:05-16:50"
+    11: "17:00-17:45"
+    12: "17:50-18:35"
