@@ -50,3 +50,10 @@ values (
   (select id from zeit_slot where wochentag='MONTAG' and start_stunde=1 and end_stunde=2),
   null
 );
+
+insert into raum (bezeichnung, kapazitaet) values
+('R101', 30),
+('R102', 30),
+('Labor1', 20)
+on conflict do nothing;
+
