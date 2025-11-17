@@ -29,7 +29,7 @@ public class ScheduleService {
     this.zeitSlotRepo = zeitSlotRepo; this.raumRepo = raumRepo;
   }
 
-  // --- MODIFIZIERTE METHODE (修改后的方法) ---
+
   @Transactional
   public Unterricht addUnterricht(Long klasseId, Long fachId, Long lehrerId) {
     
@@ -51,12 +51,12 @@ public class ScheduleService {
     var fach   = fachRepo.findById(fachId).orElseThrow(() -> new IllegalArgumentException("Fach nicht gefunden"));
     var lehrer = lehrerRepo.findById(lehrerId).orElseThrow(() -> new IllegalArgumentException("Lehrer nicht gefunden"));
 
-    // (Die alte, fehlerhafte "exists" Prüfung wurde entfernt)
+
 
     var u = Unterricht.builder().schulklasse(klasse).fach(fach).lehrer(lehrer).build();
     return unterrichtRepo.save(u);
   }
-  // --- ENDE MODIFIKATION ---
+
 
   @Transactional
   public void deleteUnterricht(Long unterrichtId) {

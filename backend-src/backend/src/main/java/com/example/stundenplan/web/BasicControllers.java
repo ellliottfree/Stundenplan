@@ -13,7 +13,7 @@ import com.example.stundenplan.web.dto.KlassenplanDto;
 import com.example.stundenplan.web.dto.PlanItemDto;
 import com.example.stundenplan.service.PlanQueryService;
 
-// --- Lehrer Controller (Unverändert) ---
+// --- Lehrer Controller  ---
 @RestController @RequestMapping("/api/v1/lehrer")
 class LehrerController {
     private final LehrerRepo repo; 
@@ -32,7 +32,7 @@ class LehrerController {
     }
 }
 
-// --- Fach Controller (Unverändert) ---
+// --- Fach Controller  ---
 @RestController @RequestMapping("/api/v1/faecher")
 class FachController {
     private final FachRepo repo; 
@@ -51,7 +51,7 @@ class FachController {
     }
 }
 
-// --- Schulklasse Controller (Unverändert) ---
+// --- Schulklasse Controller  ---
 @RestController @RequestMapping("/api/v1/klassen")
 class SchulklasseController {
     private final SchulklasseRepo repo; 
@@ -71,7 +71,7 @@ class SchulklasseController {
 }
 
 
-// --- MODIFIKATION HIER (修改点) ---
+
 // --- Schueler Controller (Schüler) ---
 @RestController @RequestMapping("/api/v1/schueler")
 class SchuelerController {
@@ -91,7 +91,7 @@ class SchuelerController {
         return klasseId==null ? repo.findAll() : repo.findBySchulklasseId(klasseId);
     }
 
-    // --- NEU: POST (Erstellen) ---
+
     // Wir nehmen ein DTO an, das die klasseId enthält
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -108,7 +108,7 @@ class SchuelerController {
         return repo.save(schueler);
     }
 
-    // --- NEU: DELETE (Löschen) ---
+    // --- DELETE (Löschen) ---
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSchueler(@PathVariable Long id) {
@@ -116,13 +116,13 @@ class SchuelerController {
     }
     
     // Ein DTO (Record) für die Erstellungsanfrage
-    // (Wir definieren es hier, da wir keine DTO-Datei dafür haben)
+
     public record SchuelerCreateRequest(String vorname, String nachname, Long schulklasseId) {}
 }
-// --- ENDE MODIFIKATION ---
 
 
-// --- Unterricht Controller (Unverändert) ---
+
+// --- Unterricht Controller ---
 @RestController @RequestMapping("/api/v1/unterricht")
 class UnterrichtController {
     private final UnterrichtRepo repo; 
@@ -132,7 +132,7 @@ class UnterrichtController {
     }
 }
 
-// --- Unterrichtsstunde Controller (Repariert) ---
+// --- Unterrichtsstunde Controller  ---
 @RestController @RequestMapping("/api/v1/unterrichtsstunden")
 class UnterrichtsstundeController {
     private final PlanQueryService planQueryService;

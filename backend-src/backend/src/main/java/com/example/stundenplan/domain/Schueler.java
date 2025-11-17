@@ -19,7 +19,7 @@ public class Schueler {
     @Column(nullable = false)
     private String nachname;
 
-    // Wir müssen die Klasse EAGER laden (sofort laden)
+
     // und @JsonIgnore entfernen
     @ManyToOne(optional = false, fetch = FetchType.EAGER) // War LAZY
     @JoinColumn(name = "schulklasse_id")

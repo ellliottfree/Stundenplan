@@ -18,12 +18,12 @@ public class Schulklasse {
     @Column(nullable = false)
     private String bezeichnung;
 
-    // --- ÄNDERUNG HIER ---
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER) // Von LAZY auf EAGER geändert
     @JoinColumn(name = "klassenlehrer_id")
     private Lehrer klassenlehrer;
 
-    // --- ÄNDERUNG HIER ---
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER) // Von LAZY auf EAGER geändert
     @JoinColumn(name = "klassenzimmer_id")
     private Raum klassenzimmer;
