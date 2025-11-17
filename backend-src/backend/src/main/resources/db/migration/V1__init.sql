@@ -11,5 +11,5 @@ create table if not exists zeit_slot (
   start_stunde int not null check (start_stunde between 1 and 12),
   end_stunde   int not null check (end_stunde between 1 and 12),
   unique (wochentag, start_stunde, end_stunde),
-  check (end_stunde > start_stunde)
+  check (end_stunde >= start_stunde)
 );

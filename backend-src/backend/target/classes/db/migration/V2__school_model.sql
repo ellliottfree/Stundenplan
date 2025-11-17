@@ -1,3 +1,4 @@
+-- H:\SA-backnd\Stundenplan\backend-src\backend\src\main\resources\db\migration\V2__school_model.sql
 
 -- === Persons ===
 create table if not exists lehrer (
@@ -13,7 +14,7 @@ create table if not exists schueler (
   schulklasse_id bigint not null
 );
 
--- === Cern ===
+-- === Cern (Core Entities) ===
 create table if not exists fach (
   id bigserial primary key,
   bezeichnung text not null unique
@@ -51,14 +52,19 @@ BEGIN
   END IF;
 END$$;
 
+
 -- === Lecture/Time ===
+
 create table if not exists unterricht (
   id bigserial primary key,
   schulklasse_id bigint not null references schulklasse(id) on delete cascade,
   lehrer_id      bigint not null references lehrer(id),
   fach_id        bigint not null references fach(id),
-  unique (schulklasse_id, fach_id)
+  
+
+  unique (schulklasse_id, fach_id, lehrer_id)
 );
+
 
 create table if not exists unterrichtsstunde (
   id bigserial primary key,
@@ -67,7 +73,9 @@ create table if not exists unterrichtsstunde (
   raum_abweichung_id bigint references raum(id)
 );
 
--- INDEXES
-create index if not exists idx_schueler_klasse        on schueler(schulklasse_id);
+
+
+-- === INDEXES (Jetzt am Ende - korrekt) ===
+create index if not exists idx_schueler_klasse      on schueler(schulklasse_id);
 create index if not exists idx_unterricht_klasse      on unterricht(schulklasse_id);
 create index if not exists idx_unterrichtsstunde_slot on unterrichtsstunde(zeit_slot_id);

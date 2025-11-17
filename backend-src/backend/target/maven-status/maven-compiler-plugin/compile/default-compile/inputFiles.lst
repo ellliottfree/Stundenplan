@@ -34,6 +34,7 @@ H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenpl
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\dto\PlanItemDto.java
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\OpenApiConfig.java
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\PlanQueryController.java
+H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\RaumController.java
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\RestExceptionHandler.java
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\ScheduleCommands.java
 H:\SA-backnd\Stundenplan\backend-src\backend\src\main\java\com\example\stundenplan\web\ZeitSlotController.java

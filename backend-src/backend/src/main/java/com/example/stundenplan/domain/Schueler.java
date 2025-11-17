@@ -1,9 +1,8 @@
 package com.example.stundenplan.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
+// import com.fasterxml.jackson.annotation.JsonIgnore; // Nicht mehr benötigt
 
 @Entity
 @Table(name = "schueler")
@@ -20,9 +19,10 @@ public class Schueler {
     @Column(nullable = false)
     private String nachname;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    // Wir müssen die Klasse EAGER laden (sofort laden)
+    // und @JsonIgnore entfernen
+    @ManyToOne(optional = false, fetch = FetchType.EAGER) // War LAZY
     @JoinColumn(name = "schulklasse_id")
-    @JsonIgnore
+    // @JsonIgnore // Entfernt
     private Schulklasse schulklasse;
 }
-
